@@ -10,10 +10,13 @@ import CoreData
 import SwiftUI
 
 final class NoteListViewModel : ObservableObject {
+    
+    // MARK: Vars
+    @Published var notes : [NoteEntity] = []
+
     private let viewContext = CoreDataManager.shared.context
     
-    @Published var notes : [NoteEntity] = []
-        
+    // MARK: Funcs
     func getNotes() {
         let request = NSFetchRequest<NoteEntity>(entityName: "NoteEntity")
         do {
@@ -24,8 +27,9 @@ final class NoteListViewModel : ObservableObject {
     }
     
     func getFontOf(note: NoteEntity) -> Font {
-        var font = Font.body
-        if note.bold { font = font.bold() }
+        var font = Font.system(size: CGFloat(Int(note.fontSize)),
+                               weight: Font.Weight.allCases[Int(note.fontWeight)],
+                               design: Font.Design.allCases[Int(note.fontDesign)])
         if note.italic { font = font.italic() }
         return font
     }
@@ -38,6 +42,7 @@ final class NoteListViewModel : ObservableObject {
         getNotes()
     }
     
+    // MARK: Private funcs
     private func saveToCoreData () {
         do {
             try viewContext.save()

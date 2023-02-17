@@ -13,10 +13,15 @@ struct NoteListView: View {
     var body: some View {
         VStack {
             
+            // MARK: List of notes
             List {
                 ForEach(viewModel.notes) { entity in
-                    Text(entity.text ?? "")
-                        .font(viewModel.getFontOf(note: entity))
+                    NavigationLink {
+                        EditNoteView(noteEntity: entity)
+                    } label: {
+                        Text(entity.text ?? "")
+                            .font(viewModel.getFontOf(note: entity))
+                    }
                 }
                 .onDelete (perform: viewModel.deleteNote)
             }
@@ -27,6 +32,7 @@ struct NoteListView: View {
             
             Spacer()
             
+            // MARK: Action Button
             addNoteButton
 
         }
@@ -34,6 +40,7 @@ struct NoteListView: View {
     }
 }
 
+// MARK: PreviewProvider
 struct NoteListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
@@ -42,10 +49,11 @@ struct NoteListView_Previews: PreviewProvider {
     }
 }
 
+// MARK: - Private vars
 extension NoteListView {
     private var addNoteButton: some View {
         NavigationLink {
-            AddNoteView()
+            EditNoteView()
         } label: {
             Text("Add note")
                 .font(.headline)

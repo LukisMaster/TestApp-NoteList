@@ -11,12 +11,13 @@
 		2D076BCE299D0647008562A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D076BCD299D0647008562A1 /* Assets.xcassets */; };
 		2D076BD1299D0647008562A1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D076BD0299D0647008562A1 /* Preview Assets.xcassets */; };
 		2D076BDD299D082D008562A1 /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D076BDC299D082D008562A1 /* NoteListView.swift */; };
-		2D076BDF299D0B1B008562A1 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D076BDE299D0B1B008562A1 /* AddNoteView.swift */; };
+		2D076BDF299D0B1B008562A1 /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D076BDE299D0B1B008562A1 /* EditNoteView.swift */; };
 		2D076BE2299D11D9008562A1 /* NoteListContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D076BE0299D11D9008562A1 /* NoteListContainer.xcdatamodeld */; };
 		2D076BE4299D1291008562A1 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D076BE3299D1291008562A1 /* Note.swift */; };
 		2D076BE6299D1827008562A1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D076BE5299D1827008562A1 /* CoreDataManager.swift */; };
-		2D076BE8299D1C9B008562A1 /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D076BE7299D1C9B008562A1 /* AddNoteViewModel.swift */; };
+		2D076BE8299D1C9B008562A1 /* EditNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D076BE7299D1C9B008562A1 /* EditNoteViewModel.swift */; };
 		2D076C09299E6B73008562A1 /* NoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D076C08299E6B73008562A1 /* NoteListViewModel.swift */; };
+		2D076C0C299ED578008562A1 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D076C0B299ED578008562A1 /* Font+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,12 +26,13 @@
 		2D076BCD299D0647008562A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D076BD0299D0647008562A1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2D076BDC299D082D008562A1 /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
-		2D076BDE299D0B1B008562A1 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		2D076BDE299D0B1B008562A1 /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
 		2D076BE1299D11D9008562A1 /* NoteListDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NoteListDataModel.xcdatamodel; sourceTree = "<group>"; };
 		2D076BE3299D1291008562A1 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		2D076BE5299D1827008562A1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		2D076BE7299D1C9B008562A1 /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
+		2D076BE7299D1C9B008562A1 /* EditNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewModel.swift; sourceTree = "<group>"; };
 		2D076C08299E6B73008562A1 /* NoteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModel.swift; sourceTree = "<group>"; };
+		2D076C0B299ED578008562A1 /* Font+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,11 +65,12 @@
 		2D076BC8299D0645008562A1 /* TestApp-NoteList */ = {
 			isa = PBXGroup;
 			children = (
+				2D076C0A299ED54A008562A1 /* Extensions */,
 				2D076BC9299D0645008562A1 /* TestApp_NoteListApp.swift */,
 				2D076BDC299D082D008562A1 /* NoteListView.swift */,
 				2D076C08299E6B73008562A1 /* NoteListViewModel.swift */,
-				2D076BDE299D0B1B008562A1 /* AddNoteView.swift */,
-				2D076BE7299D1C9B008562A1 /* AddNoteViewModel.swift */,
+				2D076BDE299D0B1B008562A1 /* EditNoteView.swift */,
+				2D076BE7299D1C9B008562A1 /* EditNoteViewModel.swift */,
 				2D076BCD299D0647008562A1 /* Assets.xcassets */,
 				2D076BE5299D1827008562A1 /* CoreDataManager.swift */,
 				2D076BE0299D11D9008562A1 /* NoteListContainer.xcdatamodeld */,
@@ -83,6 +86,14 @@
 				2D076BD0299D0647008562A1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2D076C0A299ED54A008562A1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2D076C0B299ED578008562A1 /* Font+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,11 +166,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D076C0C299ED578008562A1 /* Font+Extensions.swift in Sources */,
 				2D076C09299E6B73008562A1 /* NoteListViewModel.swift in Sources */,
-				2D076BDF299D0B1B008562A1 /* AddNoteView.swift in Sources */,
+				2D076BDF299D0B1B008562A1 /* EditNoteView.swift in Sources */,
 				2D076BE4299D1291008562A1 /* Note.swift in Sources */,
 				2D076BE2299D11D9008562A1 /* NoteListContainer.xcdatamodeld in Sources */,
-				2D076BE8299D1C9B008562A1 /* AddNoteViewModel.swift in Sources */,
+				2D076BE8299D1C9B008562A1 /* EditNoteViewModel.swift in Sources */,
 				2D076BCA299D0645008562A1 /* TestApp_NoteListApp.swift in Sources */,
 				2D076BE6299D1827008562A1 /* CoreDataManager.swift in Sources */,
 				2D076BDD299D082D008562A1 /* NoteListView.swift in Sources */,
@@ -219,7 +231,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -273,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -300,7 +312,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -331,7 +343,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

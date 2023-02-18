@@ -4,10 +4,11 @@
         <attribute name="fontDesign" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="fontSize" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="fontWeight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="italic" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="NoteEntity" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="NoteEntity" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>

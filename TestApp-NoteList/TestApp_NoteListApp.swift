@@ -16,7 +16,6 @@ struct TestApp_NoteListApp: App {
             firstLaunchData()
             defaults.set(true, forKey: "appFirstLaunch")
         }
-        
         UITableView.appearance().backgroundColor = UIColor.clear
         UITableView.appearance().allowsSelection = false
         UITableViewCell.appearance().selectionStyle = .none

@@ -19,8 +19,15 @@ struct NoteListView: View {
                     NavigationLink {
                         EditNoteView(noteEntity: entity)
                     } label: {
-                        Text(entity.text ?? "")
-                            .font(viewModel.getFontOf(note: entity))
+                        HStack {
+                            viewModel.getImageBy(note: entity)?
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: 36, maxHeight: 36)
+                            Text(entity.text ?? "")
+                                .font(viewModel.getFontOf(note: entity))
+                                .lineLimit(1)
+                        }
                     }
                 }
                 .onDelete (perform: viewModel.deleteNote)

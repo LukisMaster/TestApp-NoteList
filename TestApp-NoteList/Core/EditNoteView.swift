@@ -35,22 +35,36 @@ struct EditNoteView: View {
             List {
                 
                 AppNotePickerView(selectionIndex: $viewModel.fontDesignIndex, allIndexces: Font.Design.allCases.indices, pickerName: "Design", itemNames: Font.Design.allNames)
-                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                    .listRowBackground(Color.clear)
-                
+                    .listRowEditNoteStyle()
+
                 AppNotePickerView(selectionIndex: $viewModel.fontWeightIndex, allIndexces: Font.Weight.allCases.indices, pickerName: "Weight", itemNames: Font.Weight.allNames)
-                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                    .listRowBackground(Color.white)
+                    .listRowEditNoteStyle()
 
                 Toggle("Italic", isOn: $viewModel.noteItalic)
-                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    .listRowEditNoteStyle()
+
                 
                 fontSizeSlider
-                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    .listRowEditNoteStyle()
+                
+                if viewModel.pickerVisible {
+                    pickerNavLink
+                        .listRowEditNoteStyle()
+                } else {
+                    imageClearButton
+                        .listRowEditNoteStyle()
+                }
+                
+                if let pickerImage = viewModel.pickerImage {
+                    Image(uiImage: pickerImage)
+                        .resizable()
+                        .scaledToFit()
+                        .listRowEditNoteStyle()
+                }
                 
             }
             .listStyle(.insetGrouped)
-    
+
             // MARK: Action Button
             saveNoteButton
                 .alert(isPresented: $viewModel.showAlert) {
@@ -60,7 +74,6 @@ struct EditNoteView: View {
 
         }
         .navigationTitle(viewModel.navigationTitleText)
-        
     }
 }
 
@@ -106,6 +119,30 @@ extension EditNoteView {
         }
     }
     
+    private var pickerNavLink: some View {
+        NavigationLink {
+            ImagePicker(image: $viewModel.pickerImage)
+                .navigationTitle("Set Image")
+        } label: {
+            Text("Set Image")
+        }
+    }
+    
+    private var imageClearButton: some View {
+        Button {
+            viewModel.clearImage()
+        } label: {
+            HStack {
+                Text("Clear Image")
+                    .foregroundColor(.black)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .foregroundColor(Color(white: 0.75))
+                    .scaleEffect(0.82)
+            }
+        }
+    }
+    
     private func showAlert() -> Alert {
         return Alert(
             title: Text("Please enter any text"),
@@ -118,8 +155,6 @@ extension EditNoteView {
             )
         )
     }
-    
-    
 }
 
 // MARK: - Reusable Structs

@@ -42,6 +42,14 @@ final class NoteListViewModel : ObservableObject {
         getNotes()
     }
     
+    func getImageBy(note: NoteEntity) -> Image? {
+        if let imageData = note.image, let uiImage = UIImage(data: imageData) {
+            return Image(uiImage: uiImage)
+        } else {
+            return nil
+        }
+    }
+    
     // MARK: Private funcs
     private func saveToCoreData () {
         do {

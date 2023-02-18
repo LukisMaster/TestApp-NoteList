@@ -12,33 +12,36 @@ final class EditNoteViewModel : ObservableObject {
     // MARK: Vars
     private let viewContext = CoreDataManager.shared.context
     @Published var showAlert = false
-    @Published var noteText = ""
-    @Published var noteItalic = false {
+    @Published var noteText : String
+    @Published var noteItalic : Bool {
         didSet {
             changeTextFont()
         }
     }
     
-    @Published var fontWeightIndex = 0 {
+    @Published var fontWeightIndex : Int{
         didSet {
             changeTextFont()
         }
     }
-    @Published var fontDesignIndex = 0 {
+    @Published var fontDesignIndex : Int {
         didSet {
             changeTextFont()
         }
     }
     
-    @Published var fontSize : Double = 17 {
+    @Published var fontSize : Double {
         didSet {
             changeTextFont()
         }
     }
+    
+    @Published var pickerImage : UIImage? 
         
     var textFont : Font = .system(size: 17, weight: .regular, design: .default)
     @Published var navigationTitleText : String
     
+    var pickerVisible : Bool
     let isEditView : Bool
     let note: NoteEntity!
     
@@ -50,6 +53,12 @@ final class EditNoteViewModel : ObservableObject {
             fontWeightIndex = Int(entity.fontWeight)
             fontDesignIndex = Int(entity.fontDesign)
             fontSize = Double(entity.fontSize)
+            if let imageData = entity.image {
+                pickerImage = UIImage(data: imageData)
+                pickerVisible = false
+            } else {
+                pickerVisible = true
+            }
             isEditView = true
             navigationTitleText = "Edit Note"
             note = entity
@@ -57,6 +66,12 @@ final class EditNoteViewModel : ObservableObject {
             isEditView = false
             navigationTitleText = "New Note"
             note = nil
+            noteText = ""
+            noteItalic = false
+            fontWeightIndex = 0
+            fontDesignIndex = 0
+            fontSize = 17
+            pickerVisible = true
         }
     }
     
@@ -73,14 +88,28 @@ final class EditNoteViewModel : ObservableObject {
         noteEntity.fontSize = Int16(fontSize)
         noteEntity.fontWeight = Int16(fontWeightIndex)
         noteEntity.fontDesign = Int16(fontDesignIndex)
-        
+        noteEntity.image = pickerImage?.jpegData(compressionQuality: 1)
+
         saveToCoreData()
-        if !isEditView { clearInputFields() }
+        if !isEditView {
+            clearInputFields()
+        } else {
+            if let _ = noteEntity.image {
+                pickerVisible = false
+            } else {
+                pickerVisible = true
+            }
+        }
         
         navigationTitleText = "Success!"
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
             self?.navigationTitleText = self!.isEditView ? "Edit Note" : "New Note"
         }
+    }
+    
+    func clearImage() {
+        pickerVisible = true
+        pickerImage = nil
     }
         
     // MARK: Private funcs
@@ -88,6 +117,10 @@ final class EditNoteViewModel : ObservableObject {
         showAlert = false
         noteText = ""
         noteItalic = false
+        fontWeightIndex = 0
+        fontDesignIndex = 0
+        fontSize = 17
+        pickerImage = nil
     }
     
     private func changeTextFont() {
